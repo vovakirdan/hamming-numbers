@@ -1,13 +1,14 @@
-CC=gcc
-CFLAGS=-Wall -Wextra
+# Makefile
 
-all: main
+# Variables
+SRC = $(filename)
+OBJ = $(basename $(SRC))
 
-main: main.o
-	$(CC) $(CFLAGS) -o main main.o
+# Compile target
+$(OBJ): $(SRC)
+	/usr/bin/gcc -fdiagnostics-color=always -g $(SRC) -o $(OBJ) -lm
 
-main.o: main.c
-	$(CC) $(CFLAGS) -c main.c
-
+# Clean target
 clean:
-	rm -f *.o main
+	rm -f $(OBJ)
+
