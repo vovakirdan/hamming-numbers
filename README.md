@@ -16,11 +16,12 @@ Write a function that computes the *nth* smallest Hamming number.
 
 Specifically:
 
-* The first smallest Hamming number is 1 = 203050
-* The second smallest Hamming number is 2 = 213050
-* The third smallest Hamming number is 3 = 203150
-* The fourth smallest Hamming number is 4 = 223050
-* The fifth smallest Hamming number is 5 = 203051
+* The first smallest Hamming number is 1 = $2^03^05^0$
+* The second smallest Hamming number is 2 = $2^13^05^0$
+* The third smallest Hamming number is 3 = $2^03^15^0$
+* The fourth smallest Hamming number is 4 = $2^23^05^0$
+* The fifth smallest Hamming number is 5 = $2^03^05^1$
+
 The 20 smallest Hamming numbers are given in the 
 Example test fixture.
 
