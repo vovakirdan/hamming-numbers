@@ -1,9 +1,12 @@
-# Hamming Numbers difficulty 4 kyu kata NOT SOLVED
+# Hamming Numbers difficulty 4 kyu kata SOLVED
 * [Description](README.md#description-of-issue)
 * [First solution (didn't work on large nums)](README.md#firstly-i-tried-to-do-a-heap-solution-didnt-solve)
 * [First code complexity](README.md#key-operations-and-their-complexities)
     * [Time Complexity](README.md#overall-time-complexity)
     * [Space complexity](README.md#space-complexity)
+* [Solution](README.md#actual-solution)
+    * [Time complexity](README.md#time-complexity)
+    * [Space complexity](README.md#space-complexity-1)
 
 Description of issue
 =
@@ -86,3 +89,37 @@ Thus, the overall time complexity of the `nthRegularNumber` function is:
 * The space complexity is therefore 𝑂(𝑛).
 
 <center>𝑂(𝑛)</center>
+
+[Actual solution](hamming.c)
+=
+## Key Components and Functions
+1. **Array Initialization:**
+
+* `bases[] = {2, 3, 5}`: This array stores the prime factors used to generate the Hamming numbers.
+* `expos[] = {0, 0, 0}`: This array keeps track of the indices in the Hamming number sequence that are used to generate the next multiple of 2, 3, or 5.
+* `hamms`: This dynamically allocated array stores the first n Hamming numbers.
+2. Generating Hamming Numbers:
+
+* The first Hamming number is initialized as 1: `hamms[0] = 1.`
+* The loop runs from `j = 1` to `n - 1` to generate the next Hamming numbers.
+* In each iteration:
+    * `next_hamms[]`: An array that stores the next potential Hamming number by multiplying the current Hamming number at the respective index by 2, 3, and 5.
+    * `next_hamm`: This variable holds the minimum value from `next_hamms[]`, which will be the next Hamming number.
+    * The generated Hamming number is stored in `hamms[j]`.
+    * The `expos[]` array is updated to ensure the next Hamming number is generated correctly by moving the index forward for the base that was used to generate `next_hamm`.
+3. Final Output:
+
+* After the loop completes, the nth Hamming number is stored in `hamms[n - 1]`.
+* The dynamically allocated memory is freed before returning the result.
+### Time Complexity
+* **Inner Loop (Generating Next Hamming Number)**: Each iteration requires finding the minimum of three potential next Hamming numbers, which is 𝑂(1).
+* **Overall Time Complexity**: Since the outer loop runs `n` times, the time complexity is 𝑂(𝑛).
+### Space Complexity
+* **Array hamms[]:** This array stores `n` Hamming numbers, leading to a space complexity of 𝑂(𝑛).
+* **Additional Space:** The arrays `bases[]`, `expos[]`, and `next_hamms[]` are all of constant size, contributing 𝑂(1) additional space.
+
+## Summary
+### Time Complexity: 
+## <center>𝑂(𝑛)</center>
+### Space Complexity:
+## <center>𝑂(𝑛)</center>
